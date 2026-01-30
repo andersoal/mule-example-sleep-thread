@@ -113,7 +113,7 @@ src/main/resources/META-INF/MANIFEST.MF
 # ACB defaults #
 # ------------------------------------------------------------------------------ #
 .tooling-project
-src/test/resources/embedded-dw_***/*.*
+src/test/resources/embedded-dw_**
 
 # ------------------------------------------------------------------------------ #
 # Salesforce Einstein for Developers #
@@ -136,6 +136,6 @@ src/main/resources/application-types.xml
 
 .env
 
-*.local.*
+*.ignore*
 
 #END: Global

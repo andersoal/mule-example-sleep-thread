@@ -14,6 +14,9 @@ http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mul
 		api="api.raml"
 		outboundHeadersMapName="outboundHeaders"
 		httpStatusVarName="httpStatus"/>
+<!-- -->
+<!-- -->
+<!-- -->
 	<flow name="api-main">
 		<http:listener
 			config-ref="api-httpListenerConfig"
@@ -31,6 +34,9 @@ http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mul
 			doc:name="api-config"/>
 		<error-handler ref="error-handler"/>
 	</flow>
+<!-- -->
+<!-- -->
+<!-- -->
 	<flow name="api-console">
 		<http:listener
 			config-ref="api-httpListenerConfig"
@@ -48,6 +54,9 @@ http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mul
 			doc:name="api-config"/>
 		<error-handler ref="error-handler"/>
 	</flow>
+<!-- -->
+<!-- -->
+<!-- -->
 	<flow name="get:\endpoints:api-config">
 		<ee:transform
 			doc:name="payload/json"
@@ -67,6 +76,9 @@ var endpoints = readUrl('classpath://api.xml', 'application/xml' ).mule.*flow.@n
 			message="#[output json --- payload]"
 			doc:name="INFO payload"/>
 	</flow>
+<!-- -->
+<!-- -->
+<!-- -->
 	<flow name="get:\sleep:api-config">
 		<set-variable
 			value="#[dw::util::Timer::currentMilliseconds()]"
@@ -78,6 +90,12 @@ var endpoints = readUrl('classpath://api.xml', 'application/xml' ).mule.*flow.@n
 			doc:name="BEFORE"
 			doc:id="bc29ecfa-0a58-4719-9a03-b87924df43cd"
 			message='#[output json --- {"tracepoint": "BEFORE", "start": vars.start }]'/>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
 		<scripting:execute
 			engine="Groovy"
 			doc:name="Thread.sleep"
@@ -94,6 +112,12 @@ var endpoints = readUrl('classpath://api.xml', 'application/xml' ).mule.*flow.@n
 	}) as Number
 }]]]></scripting:parameters>
 		</scripting:execute>
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
+<!-- -->
 		<ee:transform
 			doc:name="payload/json Response"
 			doc:id="1db31210-6de8-451d-94db-37e4a7d8f142">
